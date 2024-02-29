@@ -16,9 +16,7 @@ class Country extends Component {
             name: 'Usa',
             timezone: 'Est-5:00'
         })
-
     }
-
 
     render() {
         return (
