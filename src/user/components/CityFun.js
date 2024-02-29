@@ -13,7 +13,7 @@ function CityFun(props) {
     return (
         <>
             <h1>My City is {City}.</h1>
-            <h1>My City's Area is {Area}.</h1>
+            <h1>My City's area is {Area}.</h1>
             <button onClick={changeCity}>ChangeCity</button>
         </>
     );
