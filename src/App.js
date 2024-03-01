@@ -4,6 +4,7 @@ import Country from './user/components/Country';
 import City from './user/components/City';
 import CountryFun from './user/components/CountryFun';
 import CityFun from './user/components/CityFun';
+import PropsFun from './user/components/PropsFun';
 
 
 
@@ -15,7 +16,9 @@ function App() {
       <Country />
       <City />
       <CountryFun /> 
-      <CityFun />    
+      <CityFun /> 
+      <PropsFun name={"meet"} age={"20"}/>   
+      <PropsFun name={"krish"} age={"20"}/>  
     </>
   );
 }
