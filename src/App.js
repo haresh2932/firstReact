@@ -7,6 +7,7 @@ import CityFun from './user/components/CityFun';
 import PropsFun from './user/components/PropsFun';
 import Counter from './user/components/Counter';
 import CounterClass from './user/components/CounterClass';
+import Medicines from './user/containers/Medicines';
 
 
 
@@ -15,14 +16,15 @@ import CounterClass from './user/components/CounterClass';
 function App() {
   return (
     <>
-      <Country />
-      <City />
-      <CountryFun /> 
-      <CityFun /> 
+      {/* <Country/> */}
+      {/* <City /> */}
+      {/* <CountryFun/>  */}
+      <Medicines/>
+      {/* <CityFun /> 
       <PropsFun name={"meet"} age={"20"}/>   
       <PropsFun name={"krish"} age={"20"}/>  
       <Counter/>
-      <CounterClass/>
+      <CounterClass/> */}
     </>
   );
 }

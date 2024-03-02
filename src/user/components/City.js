@@ -10,7 +10,6 @@ class City extends Component {
     }
 
     changeCity = () => {
-        // console.log("jhdscfjhs");
         this.setState({
             name: 'Navsari',
             area: '400KM'
@@ -22,9 +21,9 @@ class City extends Component {
         return (
             <>
                 <h2>City</h2>
-                <h3>My City {this.state.name}</h3>
-                <h3>My City Area:{this.state.area}</h3>
-                <button onClick={this.changeCity}>ChangeCity</button>
+                <h3>My City {this.props.countryName === 'India'?'Delhi':'Chicago'}</h3>
+                <h3>My City Area:{this.props.countryName === 'India'?'2000km2':'640KM2'}</h3>
+                {/* <button onClick={this.changeCity}>ChangeCity</button> */}
             </>
         );
     }
