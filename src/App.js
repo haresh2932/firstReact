@@ -8,6 +8,7 @@ import PropsFun from './user/components/PropsFun';
 import Counter from './user/components/Counter';
 import CounterClass from './user/components/CounterClass';
 import Medicines from './user/containers/Medicines';
+import Doctors from './user/containers/Doctors';
 
 
 
@@ -19,7 +20,8 @@ function App() {
       {/* <Country/> */}
       {/* <City /> */}
       {/* <CountryFun/>  */}
-      <Medicines/>
+      {/* <Medicines/> */}
+      <Doctors/>
       {/* <CityFun /> 
       <PropsFun name={"meet"} age={"20"}/>   
       <PropsFun name={"krish"} age={"20"}/>  
