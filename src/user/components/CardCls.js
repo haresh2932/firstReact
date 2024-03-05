@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 // import './Card.css'
 
 class CardCls extends Component {
-    
-    
-
-
 
     render() {
         const { dataDoc } = this.props
@@ -13,11 +9,8 @@ class CardCls extends Component {
 
         return (
             <>
-
-
                 <div class="container" id='doctorCard'>
-                    <div class="banner-image">
-
+                   <div class="banner-image">
 
                     </div>
                     <div class="wrapper">

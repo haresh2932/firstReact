@@ -7,8 +7,8 @@ import CityFun from './user/components/CityFun';
 import PropsFun from './user/components/PropsFun';
 import Counter from './user/components/Counter';
 import CounterClass from './user/components/CounterClass';
-import Medicines from './user/containers/Medicines';
-import Doctors from './user/containers/Doctors';
+import Medicines from './user/containers/Medicines/Medicines';
+import Doctors from './user/containers/Doctors/Doctors';
 
 
 
