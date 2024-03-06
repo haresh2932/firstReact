@@ -9,6 +9,8 @@ import Counter from './user/components/Counter';
 import CounterClass from './user/components/CounterClass';
 import Medicines from './user/containers/Medicines/Medicines';
 import Doctors from './user/containers/Doctors/Doctors';
+import Timer from './user/containers/timer/Timer';
+import TimerFun from './user/containers/timer/TimerFun';
 
 
 
@@ -21,7 +23,9 @@ function App() {
       {/* <City /> */}
       {/* <CountryFun/>  */}
       {/* <Medicines/> */}
-      <Doctors/>
+      {/* <Doctors/> */}
+      {/* <Timer/> */}
+      <TimerFun/>   
       {/* <CityFun /> 
       <PropsFun name={"meet"} age={"20"}/>   
       <PropsFun name={"krish"} age={"20"}/>  
