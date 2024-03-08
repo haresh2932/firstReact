@@ -3,7 +3,11 @@ import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'react
 
 function Product(props) {
     const [productData, setProduct] = useState([])
-    const [search,setSearch]=useState("")
+    const [search, setSearch] = useState("")
+    const [sort, setSort] = useState("")
+    const [category, setCategory] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState('')
+
 
 
 
@@ -17,26 +21,93 @@ function Product(props) {
 
         console.log(data);
         setProduct(data);
+        // setCategory(data)
+
+        let cateData = []
+        data.map((v) => {
+            if (!cateData.includes(v.category)) {
+                (cateData.push(v.category))
+            }
+        })
+
+        setCategory(cateData);
 
     }
 
-    const handleFind=(event)=>{
-        console.log("hfhfd");
-        setSearch(event.target.value)
+    const handleFind = () => {
+        // console.log("hfhfd");
 
-        const availableItem=productData.filter((v)=>v.title||v.description)
-       
+        let availableItem = productData.filter((v) =>
+            v.title.toLowerCase().includes(search) ||
+            v.description.toLowerCase().includes(search) ||
+            v.price.toString().includes(search)
+        )
+
+        availableItem = availableItem.sort((a, b) => {
+            if (sort === "lh") {
+                return a.price - b.price;
+            } else if (sort === "hl") {
+                return b.price - a.price;
+            } else if (sort === "az") {
+                return a.title.localeCompare(b.title);
+            } else if (sort === "za") {
+                return b.title.localeCompare(a.title);
+            }
+        });
+
+        if (selectedCategory) {
+            availableItem = availableItem.filter((v) => v.category === selectedCategory)
+        }
+
+        console.log(availableItem);
+        return availableItem
+
     }
+
+    const finalData = handleFind()
+    console.log(finalData);
 
     return (
-        <div className='container align-self-center' >
-            <div className='row'>
+        <div className='container' >
+            <div className='row '>
                 <h2 className='text-center' >Products</h2>
-                <input type='search'  id='searchBox' onChange={handleFind}></input>
+                <div className='mb-3 text-center'>
+                    <input type='search'
+                        id='searchBox'
+                        placeholder='Search...'
+                        onChange={(event) => setSearch(event.target.value)}
+                    />
+                    <br></br>
+                    <br></br>
+
+                    <select onChange={(event) => setSort(event.target.value)}>
+                        <option value="0">--sort--</option>
+                        <option value="lh">Price:Low to High</option>
+                        <option value="hl">Price:High to Low</option>
+                        <option value="az">Product:A to Z</option>
+                        <option value="za">Product:Z to A</option>
+
+                    </select>
+                    <br />
+                    <button onClick={()=>setSelectedCategory()}>All</button>
+
+                    {
+
+                        category.map((v) => (
+                            <button onClick={() => setSelectedCategory(v)}> {v}</button>
+                        ))
+
+                    }
+
+
+
+
+                </div>
+
 
                 {
 
-                    productData.map((v, i) => (
+                    finalData.map((v, i) => (
                         <div className='col-md-4 gy-5 '>
 
                             <Card
@@ -68,7 +139,7 @@ function Product(props) {
                     ))
                 }
             </div>
-        </div>
+        </div >
 
     );
 }
