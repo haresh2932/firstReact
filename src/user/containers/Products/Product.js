@@ -6,7 +6,7 @@ function Product(props) {
     const [search, setSearch] = useState("")
     const [sort, setSort] = useState("")
     const [category, setCategory] = useState([])
-    const [selectedCategory, setSelectedCategory] = useState('')
+    const [selectedCategory,setSelectedCategory] =useState('')
 
 
 
@@ -22,11 +22,11 @@ function Product(props) {
         console.log(data);
         setProduct(data);
         // setCategory(data)
-
-        let cateData = []
-        data.map((v) => {
-            if (!cateData.includes(v.category)) {
-                (cateData.push(v.category))
+        
+        let cateData=[]
+        data.map((v)=>{
+            if(!cateData.includes(v.category)){
+                (cateData.push(v.category)) 
             }
         })
 
@@ -55,11 +55,8 @@ function Product(props) {
             }
         });
 
-        if (selectedCategory) {
-            availableItem = availableItem.filter((v) => v.category === selectedCategory)
-        }
+       
 
-        console.log(availableItem);
         return availableItem
 
     }
@@ -88,20 +85,52 @@ function Product(props) {
                         <option value="za">Product:Z to A</option>
 
                     </select>
-                    <br />
-                    <button onClick={()=>setSelectedCategory()}>All</button>
+                    <select onChange={(event)=> setSelectedCategory(event.target.value)} >
+                        <option value="0">--Category--</option>
+                        {
+                            
+                            
+                     
+                            // function changeCat() {
+                            //     let uniq = []
+                            //         for (let index = 0; index < category.length; index++) {
+                            //             if(uniq.indexOf(category[index].category===-1)){
+                            //                 uniq.push(category[index].category);
+                            //             };
+                                        
+                            //         }
+                            //         return uniq
+                            //     }           
+                               
+                                // console.log(changeCat());
+                                category.map((v) => (
+                                    // if(v.category){
+                                        <option value={(v)}> {(v)}</option>
 
-                    {
+                                    // }
+                                
+                                ))
 
-                        category.map((v) => (
-                            <button onClick={() => setSelectedCategory(v)}> {v}</button>
-                        ))
+                            //   category.reduce((acc,v)=>{
+                            //     if (acc[v.category]){
+                            //         console.log(v.category)
+                            //         const setCate=acc[v.category].findIndex((data)=>data.category===v.category)
+                            //         console.log(v.category,setCate);
+                            //     }
 
-                    }
+                            //   })
+
+
+                        },
+                        {
+                            
+                        }
 
 
 
-
+                    </select>
+                     
+                     
                 </div>
 
 
