@@ -14,30 +14,28 @@ import TimerFun from './user/containers/timer/TimerFun';
 import Product from './user/containers/Products/Product';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Provider } from 'react-redux';
-import { configStore } from './redux/store';
 import Counter from './user/containers/Counter/Counter';
+// import {configStore} from './redux/store'
+import CounterSlice from './user/containers/CounterSlice/Counter';
+// import CounterSlice from './redux/Slice/counterSlice';
+import { configStore } from './redux/store';
+import { createContext, useContext } from 'react';
+import Example from './user/containers/Example/Example';
+import Example2 from './user/containers/Example/Example2';
 
-
-
-
-
-function App() {
-  const store=configStore()
+export default function App() {
+  const store = configStore()
   return (
     <>
       <Provider store={store}>
-        {/* <Country/> */}
-        {/* <City /> */}
-        {/* <CountryFun/>  */}
-        {/* <Medicines/> */}
-        {/* <Doctors/> */}
-        {/* <Timer/> */}
-        {/* <TimerFun/>    */}
-        {/* <Product /> */}
-        <Counter />
+          {/* <Product /> */}
+          {/* <Example /> */}
+          <Example2/>
       </Provider>
     </>
   );
 }
 
-export default App;
+
+
+// export default App;

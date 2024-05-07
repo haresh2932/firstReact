@@ -6,3 +6,4 @@ export const configStore=()=>{
     const store=createStore(rootReduser,applyMiddleware(thunk))
     return store
 }
+    

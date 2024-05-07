@@ -2,17 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
 
 function Product(props) {
+    
     const [productData, setProduct] = useState([])
     const [search, setSearch] = useState("")
     const [sort, setSort] = useState("")
     const [category, setCategory] = useState([])
     const [selectedCategory, setSelectedCategory] = useState('')
-    // const [selectedColor, setSelectedColor] = useState('blue')
-
-
-
-
-
+  
     useEffect(() => {
         getData();
     }, [])
@@ -23,7 +19,6 @@ function Product(props) {
 
         console.log(data);
         setProduct(data);
-        // setCategory(data)
 
         let cateData = []
         data.map((v) => {
@@ -33,12 +28,9 @@ function Product(props) {
         })
 
         setCategory(cateData);
-
     }
 
     const handleFind = () => {
-        // console.log("hfhfd");
-
         let availableItem = productData.filter((v) =>
             v.title.toLowerCase().includes(search) ||
             v.description.toLowerCase().includes(search) ||
@@ -63,9 +55,7 @@ function Product(props) {
 
         console.log(availableItem);
         return availableItem
-
     }
-
     const finalData = handleFind()
     console.log(finalData);
 
@@ -81,7 +71,6 @@ function Product(props) {
                     />
                     <br></br>
                     <br></br>
-
                     <select onChange={(event) => setSort(event.target.value)}>
                         <option value="0">--sort--</option>
                         <option value="lh">Price:Low to High</option>
@@ -92,26 +81,17 @@ function Product(props) {
                     </select>
                     <br />
                     <button style={{background: selectedCategory === '' ? "blue" :"none" }} onClick={()=>setSelectedCategory('')}  className='m-1 p-1 rounded'>All</button>
-
                     {
-
-                        category.map((v) => (
+                         category.map((v) => (
                             <button style={{background: v===selectedCategory ? "blue" :"white" }} onClick={() => setSelectedCategory(v)} className='m-1 p-1 rounded'> {v}</button>
                         ))
-
                     }
-
-
-
-
                 </div>
 
 
                 {
-
                     finalData.map((v, i) => (
                         <div className='col-md-4 gy-5 '>
-
                             <Card
                                 style={{
                                     width: '18rem',
@@ -136,7 +116,6 @@ function Product(props) {
                                     </Button>
                                 </CardBody>
                             </Card>
-
                         </div>
                     ))
                 }
